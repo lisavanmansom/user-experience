@@ -84,6 +84,9 @@ p   {  font-size: 12px; color: var(--white); font-family: "poppins"; }
 a   {  font-size: 12px; color: var(--white); font-family: "poppins"; text-decoration: none; cursor: pointer;}
 li  {  font-size: 12px; color: var(--white); font-family: "poppins"; }
 
+
+label { font-family: "poppins"; }
+
 button  {  appearance: none; background: none; border: none; cursor: pointer; 
            color: inherit; font: inherit; padding: 0; outline: inherit; font-family: "poppins";}
 
@@ -96,8 +99,7 @@ ol      { counter-reset: list-counter; }
 img     { object-fit: cover;}
 
 footer  { background-color: var(--black); border-top: 2px solid var(--white); 
-          width: 100%; height: 5em;
-        }
+          width: 100%; height: 5em; }
 
 /* ----------------------------------------------------------------- */
 /* styling nav */           
@@ -129,16 +131,212 @@ footer  { background-color: var(--black); border-top: 2px solid var(--white);
 }
 
 /* ----------------------------------------------------------------- */
+/* keyframes lessons-page */
+
+@keyframes gradient { 
+  0% {background-position: 20% 0%;} 25% {background-position: 50% 100%;}
+  50% {background-position: 70% 50%;} 100% {background-position: 20% 0%;}
+}
+
+/* ----------------------------------------------------------------- */
 /* styling lessons-page */
 .lessons {
   align-items: center;
+  background-color: rgb(0, 0, 0);
+  color: var(--white);
   display: flex;
   flex-direction: column;
   overflow-y: hidden;
   width: 100%;
+}
 
-  background-color: rgb(0, 0, 0);
-  color: var(--white);
+/* nesting styling */
+.lessons {
+  animation: gradient 13s ease infinite;
+  background-size: 200% 200%;
+  background-color: hsla( 0, 0%, 0%,1);
+  background-image:
+    radial-gradient(at 84% 13%, hsla(259,47%,56%,1) 0px, transparent 50%),
+    radial-gradient(at 21% 74%, hsla(265,76%,27%,1) 0px, transparent 50%);
+  
+  /* activity section */
+  > header {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    height: auto;
+    width: 100%;
+
+    > h1 {
+      margin: 1.5em 0 .75em 0;
+      display: block;
+      text-transform:uppercase;
+    }
+    > ol {
+      align-items: start;
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 1.5rem;
+      justify-content: flex-start;
+      margin: .5em 0 0 1.2em;
+      overflow: scroll;
+      width: 100%;
+
+      scroll-snap-type: x mandatory;
+
+      > li {
+        align-items: center;
+        border-radius: var(--radius-2);
+        color: var(--white);
+        display: flex;
+        justify-content: space-around;
+        text-wrap: nowrap;
+        white-space: nowrap;
+
+        height: 3em;
+        min-width: 15em;
+        padding: .75em 1.5em;
+
+        scroll-snap-align: center;
+
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.418), rgba(124, 90, 196, 0.304));
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid var(--method-1-d2);
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+      }
+      
+      > li:hover {
+        border: 1px solid var(--method-1-l);
+        transition: .3s linear;
+      } 
+    }
+
+    > ol li::before {
+      content: counter(list-counter) "."; /* insert the counter value as content  + add "." after the number */
+      counter-increment: list-counter; /* increment the counter value */
+    }
+  } /* header end-tag */
+
+  /* playlist, stories section */
+  > section:nth-of-type(1) {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      margin: 2.5em 0 0 0;
+      overflow-y: hidden;
+      width: 100%;
+
+    h2 {
+      width: 11em;
+      max-width: 60rem
+    }
+
+    > div {
+      align-items: start;
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: column;
+      gap: 2em;
+      height: 28em;
+      justify-content: flex-start;
+      margin: 1em 0;
+      overflow-x: scroll;
+      width: calc(clamp(16rem, 71.86vw + 3.13rem, 413.061rem));
+
+      scroll-snap-type: x mandatory;
+
+      > article {
+        background-color: var(--white);
+        border-radius: var(--radius-2);
+        height: 13em;
+        width: 8em;
+
+        scroll-snap-align: center;
+  
+        > a {
+          align-items: center;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+  
+          img {
+            border-radius: var(--radius-2);
+            height: 8.5em;
+            margin: 1em 0 .75em 0;
+            object-fit: cover;
+            width: 8.5em;
+          }
+  
+          h5 {
+            text-align:left ;
+            width: 108px;
+            height: 49px;
+            color: var(--black);
+          }
+  
+         > div {
+            display: flex;
+            flex-direction: row;
+            gap: .55em;
+            margin: .25em 0 0 0;
+          }
+        }
+  
+        > a, p {
+          color: var(--black);
+          font-weight: 200;
+          text-align: center;
+        }
+  
+        > p {
+          margin: .25em 0 0 0;
+          font-weight: 100;
+          font-size: 11px;
+          
+        }
+      }
+  
+      article:hover {
+        border: 1px solid var(--method-1-l);
+        transition: .3s linear;
+      }
+  
+      /* add playlist styling-article */
+      > article:nth-of-type(1) {
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.418), rgba(124, 90, 196, 0.304));
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid var(--method-1-d2);
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        gap: .65em;
+        justify-content: center;
+        text-align: center;
+  
+        > svg {
+          margin: .5em 0 0 0;
+        }
+        
+        > h4 {
+          color: var(--white);
+          font-weight: 200;
+          width: 115px;
+        }
+  
+        > p {
+          color: var(--white);
+          font-weight: 100;
+          width: 110px;
+          font-size: 11px;
+        }
+      }
+    } 
+  } /* section-1 end-tag */
 }
 
 /* ----------------------------------------------------------------- */
