@@ -1,0 +1,14 @@
+<% playlist.forEach(playlist => { %>
+    <article>
+        <a><img class="playlist-img" src="https://fdnd-agency.directus.app/assets/<%= playlist.image %>" width="100" height="100" 
+            onerror="this.onerror=null;this.src='Placeholder-1.png';" alt="playlist">
+
+            <h4><%= playlist.title %></h4>
+
+            <%- include('./svg-play') %>
+
+            <p>31 min. 55sec</p>
+
+        </a>
+    </article>  
+<% }) %>

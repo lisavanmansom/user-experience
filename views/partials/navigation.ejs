@@ -1,0 +1,34 @@
+<nav class="navigatie">
+  <script src="/script.js" defer></script>
+    <ul>
+      <li>Tumi Mundo</li>
+      <li><a href="/" 
+          <% if (current == '/') { %> class="active active-1" <% } %>>
+            <p>Home</p>
+          </a></li>
+      <li><a href="/testing" 
+        <% if (current == '/testing') { %> class="active active-2" <% } %>>
+            <p>Testing</p>
+        </a></li>
+
+      <li><a href="/lessons"
+        <% if (current == '/lessons') { %> class="active active-3" <% } %>>
+            <p>Lessons</p>
+        </a></li>
+
+      <li><a href="/statistics"
+        <% if (current == '/statistics') { %> class="active active-4" <% } %>>
+            <p>Statistics</p>
+
+          </a></li>
+
+      <li><a href="/profile"
+        <% if (current == '/profile') { %> class="active active-5" <% } %>>
+
+            <p>Profile</p>
+
+          </a></li>
+    </ul>
+    
+  </nav>
+

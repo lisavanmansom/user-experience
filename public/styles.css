@@ -1,0 +1,87 @@
+@font-face {
+  font-family: "Poppins";
+  src: url(/Poppins-Regular.ttf);
+  font-weight: 100;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url(/Poppins-SemiBold.ttf);
+  font-weight: 200;
+}
+
+:root {
+--primary-font: "Poppins", sans-serif;
+  /* colourpalette */
+  /*--------b---w------ */
+  --white: #F5FAFF;
+  --black: hsla( 0, 0%, 0%,1);
+
+  /*--------bg---gradient------ */
+  --bg-method: hsla( 0, 0%, 0%,1);
+  --gr-method: linear-gradient(0deg, rgba(27, 18, 69, 1) 0%, rgba(62, 17, 125, 1) 100%);
+  --gr-method: radial-gradient(at 84% 13%, hsla(259,47%,56%,1) 0px, transparent 50%), radial-gradient(at 21% 74%, hsla(265,76%,27%,1) 0px, transparent 50%);
+
+  --bg-statistics: rgb(27,112,112);
+  --gr-statistics: linear-gradient(0deg, rgba(27,112,112,1) 0%, rgba(33,155,155,1) 100%);
+
+  --bg-testing: rgb(27,61,112); 
+  --gr-testing: linear-gradient(0deg, rgba(27,61,112,1) 0%, rgba(33,89,155,1) 100%);
+
+  --bg-profile: rgb(180,87,81); 
+  --gr-profile: linear-gradient(0deg, rgba(180,87,81,1) 0%, rgba(240,119,93,1) 100%);
+
+  /*--------mehtod---colours------ */
+  --method-1-o:rgb(126, 93, 197);
+  --method-1-d:rgba(126, 93, 197, 0.593);
+  --method-1-d2: rgba(120, 76, 214, 0.43);
+  --method-1-l:rgb(170, 144, 225);
+
+  --method-2: rgb(20,33,81);
+  --method-3: rgba(62, 17, 125, 1);
+  
+
+  /*--------menubuttons---colours------ */
+  --home-1: rgb(85, 162, 196);
+
+
+  /*--------border---radius------ */
+  --radius-1: 16px;
+  --radius-2: 8px;
+  --radius-3: 4px;
+}
+
+@supports ( background: linear-gradient(in oklch, red 0 0) ) {
+  :root {
+    --gr-method: linear-gradient(0deg in oklch, rgba(27, 18, 69, 1) 0%, rgba(62, 17, 125, 1) 100%);
+    --gr-statistics: linear-gradient(0deg in oklch, rgba(27,112,112,1) 0%, rgba(33,155,155,1) 100%);
+    --gr-testing: linear-gradient(0deg in oklch, rgba(27,61,112,1) 0%, rgba(33,89,155,1) 100%);
+    --gr-profile: linear-gradient(0deg in oklch, rgba(180,87,81,1) 0%, rgba(240,119,93,1) 100%);  
+  }
+}
+
+
+* {  margin: 0; padding: 0; box-sizing: border-box; scrollbar-width: none;}
+*::-webkit-scrollbar {display: none;}
+
+
+h1, h2, h3, 
+h4, h5, h6 {
+  font-family: "poppins";
+  font-weight: 200;
+  color: var(--black);
+}
+
+
+h1  {  font-size: 40px;  }
+h2  {  font-size: 24px;  }
+h3  {  font-size: 18px;  }
+h4  {  font-size: 14px;  }
+p   {  font-size: 12px; color: var(--black); }
+a   {  font-size: 12px; color: var(--black); text-decoration: none; cursor: pointer;}
+
+button  {  appearance: none; background: none; border: none; cursor: pointer; 
+           color: inherit; font: inherit; padding: 0; outline: inherit;}
+
+
+

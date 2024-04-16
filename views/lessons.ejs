@@ -1,0 +1,62 @@
+<%- include('./partials/head') %>
+<%- include('./partials/navigation', {current: '/lessons'}); %>
+<main class="lessons">
+    <header>
+        <h1>Lessons</h1>
+        <ol>
+            <li>Listening 
+                <%- include('./partials/svg-listening') %></li>    
+            
+            <li>Your first words</li>
+        </ol>
+    </header>
+    <!------------------------NEW SECTION------------------------>
+    <section>
+        <h2>Own playlist</h2>
+
+        <article>
+            <%- include('./partials/svg-plus') %>
+            <h4>Make a playlist!</h4>
+            <p>Add your favourite stories in one playlist</p>
+        </article>
+
+        <%- include('./partials/playlist') %>
+            
+    </section>
+    <!------------------------NEW SECTION------------------------>
+    <section>
+        <h2>All stories</h2>
+        <a href="/allstories"><p>Show all stories</p></a>
+
+        <form action="/" method="get">
+
+            <% language.forEach(language => { %>
+              <button title="language" type="button">
+                  <img src="https://fdnd-agency.directus.app/assets/<%= language.flag %>" width="25" height="10"
+                  onerror="this.onerror=null;this.src='Placeholder-2.png';" alt="language flag">
+                  <%- language.language %>
+              </button>
+            <% }) %>
+
+        </form>
+
+        <%- include('./partials/stories') %>
+
+    </section>
+    <!------------------------NEW SECTION------------------------>
+    <section>
+        <h2>Liked playlists</h2>
+
+        <%- include('./partials/playlist-liked') %>
+
+    </section>
+    <!------------------------NEW SECTION------------------------>
+    <section>
+        <h2>Suggested playlists</h2>
+    
+        <%- include('./partials/playlist-suggested') %>
+    
+    </section>
+</main>
+
+<%- include('./partials/foot') %>

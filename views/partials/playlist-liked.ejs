@@ -1,0 +1,23 @@
+<% if (playlist.filter(playlistItem => favorites[playlistItem.id]).length > 0) { %>
+    <% playlist.filter(playlistItem => favorites[playlistItem.id]).forEach(playlistItem => { %>
+    
+      <article><a>
+        <img src="https://fdnd-agency.directus.app/assets/<%= playlistItem.image %>" width="100" height="100" onerror="this.onerror=null;this.src='Placeholder-1.png';" alt="playlist">
+        <h4><%= playlistItem.title %></h4>
+        
+        <%- include('./svg-play') %>
+        <p>31 min. 55sec</p>
+        </a>
+
+        <form method="POST" action="/<%= playlistItem.id %>/like-or-unlike">
+          
+          <button title="unlike playlist" type="submit" name="action" value="unlike">
+            <%- include('./svg-unlike') %></button>
+
+          </form></article>
+
+    <% }) %>
+
+<% } else { %>
+<p>You have no liked playlists yet.</p>
+<% } %>
