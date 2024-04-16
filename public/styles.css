@@ -114,6 +114,19 @@ footer  { background-color: var(--black); border-top: 2px solid var(--white);
   width: 100%;
   z-index: 9;
 }
+/* ----------------------------------------------------------------- */
+/* styling home-page */
+.home {
+  background-image: url("BG-homepage.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: repeat;
+  height: 100dvh;
+
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
 
 /* ----------------------------------------------------------------- */
 /* styling lessons-page */
