@@ -9,6 +9,9 @@ import fetchJson from './helpers/fetch-json.js'
 // Importeer het npm pakket express uit de node_modules map
 import express from 'express'
 
+// Maak een object aan voor favorites
+let favorites = {}
+
 // Stel het basis endpoint in
 const apiUrl = 'https://fdnd-agency.directus.app/items'
 
@@ -41,11 +44,19 @@ app.get('/', function(request, response) {
 // Stap 2
 app.get('/lessons', function(request, response) {
   Promise.all([
-  fetchJson('https://fdnd-agency.directus.app/items/tm_story'),
+  fetchJson('https://fdnd-agency.directus.app/items/tm_story?fields=*,image.id,image.height,image.width'),
   fetchJson('https://fdnd-agency.directus.app/items/tm_language'),
-  fetchJson('https://fdnd-agency.directus.app/items/tm_playlist'),
-  fetchJson('https://fdnd-agency.directus.app/items/tm_audio')]).then(([storyData, languageData, playlistData, audioData]) => { 
-  response.render('lessons', {stories: storyData.data, 
+  fetchJson('https://fdnd-agency.directus.app/items/tm_playlist?fields=*,image.id,image.height,image.width'),
+  fetchJson('ht(tps://fdnd-agency.directus.app/items/tm_audio')]).then(([storyData, languageData, playlistData, audioData]) => { 
+    
+    // like array toegevoegd worden op de API data...
+    playlistData.data = playlistData.data.map((item)=>{
+      item.liked = favorites[item.id] || false
+      return item
+    })
+
+  response.render('lessons', {
+      stories: storyData.data, 
       language: languageData.data,
       playlist: playlistData.data,
       audio: audioData.data,
@@ -55,7 +66,7 @@ app.get('/lessons', function(request, response) {
 
 app.get('/allstories', function(request, response) {
   Promise.all([
-  fetchJson('https://fdnd-agency.directus.app/items/tm_story'),
+  fetchJson('https://fdnd-agency.directus.app/items/tm_story?fields=*,image.id,image.height,image.width'),
   fetchJson('https://fdnd-agency.directus.app/items/tm_language')]).then(([storyData, languageData]) => { 
   response.render('allstories', {stories: storyData.data, 
       language: languageData.data})
@@ -63,8 +74,6 @@ app.get('/allstories', function(request, response) {
 })
 
 // Maak een POST route voor de lessons pagina
-
-let favorites = {}
 
 app.post('/:playlistId/like-or-unlike', function(request, response) {
     const playlistId = Number(request.params.playlistId);

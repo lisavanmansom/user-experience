@@ -1,7 +1,11 @@
 <% playlist.forEach(playlist => { %>
     <article><a>
-            <img class="playlist-img" src="https://fdnd-agency.directus.app/assets/<%= playlist.image %>" width="100" height="100" 
-            onerror="this.onerror=null;this.src='Placeholder-1.png';" alt="playlist">
+        <% if (playlist.image) { %>
+            <img class="playlist-img" src="https://fdnd-agency.directus.app/assets/<%= playlist.image.id %>" width="<%= playlist.image.width %>" height="<%= playlist.image.height %>"  alt="playlist">
+        <% }  else { %> 
+            <img class="playlist-img" src="./Placeholder-1.png" width="448" height="380" alt="playlist"> 
+        <% } %>
+
 
             <h5><%= playlist.title %></h5>
 

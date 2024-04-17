@@ -1,23 +1,26 @@
-<% if (playlist.filter(playlistItem => favorites[playlistItem.id]).length > 0) { %>
-    <% playlist.filter(playlistItem => favorites[playlistItem.id]).forEach(playlistItem => { %>
+<% playlist.filter((item) => item.liked ).forEach(item => { %>
+  <article>
+  <a> 
+    <% if (item.image) { %>
+    <img class="playlist-img" src="https://fdnd-agency.directus.app/assets/<%= item.image.id %>" width="<%= item.image.width %>" height="<%= item.image.height %>" alt="playlist">
+    <% }  else { %> 
+    <img class="playlist-img" src="./Placeholder-1.png" width="200" height="200" alt="playlist"> 
+  <% } %>
+  <h5><%= item.title %></h5>
     
-      <article><a>
-        <img src="https://fdnd-agency.directus.app/assets/<%= playlistItem.image %>" width="100" height="100" onerror="this.onerror=null;this.src='Placeholder-1.png';" alt="playlist">
-        <h5><%= playlistItem.title %></h5>
-        
-        <%- include('./svg-play') %>
-        <p>31 min. 55sec</p>
-        </a>
+  <%- include('./svg-play') %>
+    <p>31 min. 55sec</p>
+  </a>
 
-        <form method="POST" action="/<%= playlistItem.id %>/like-or-unlike">
-          
-          <button title="unlike playlist" type="submit" name="action" value="unlike">
-            <%- include('./svg-unlike') %></button>
+  <form method="POST" action="/<%= item.id %>/like-or-unlike">
+      
+    <button title="unlike playlist" type="submit" name="action" value="unlike">
+      <%- include('./svg-unlike') %></button>
 
-          </form></article>
+    </form>
+  </article>
+<% }) %>
 
-    <% }) %>
-
-<% } else { %>
-<p>You have no liked playlists yet.</p>
+<% if (!playlist.length > 0) { %>
+  <p>You have no liked playlists yet.</p>
 <% } %>
