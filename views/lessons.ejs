@@ -26,22 +26,31 @@
     </section>
 
     <section class="all-stories">
-        <h3>All stories</h3>
-        <a href="/allstories"><p>Show all stories</p></a>
+        <div class="header-allstories">
+            <div class="header-title"><h3>All stories</h3>
+            <a href="/allstories"><p>Show all stories</p></a></div>
 
-        <form action="/" method="get">
+            <form action="/" method="get">
 
-            <% language.forEach(language => { %>
-              <button title="language" type="button">
+                <% language.forEach(language => { %>
+                <button title="language" type="button">
                   <img src="https://fdnd-agency.directus.app/assets/<%= language.flag %>" width="25" height="10"
                   onerror="this.onerror=null;this.src='Placeholder-2.png';" alt="language flag">
                   <%- language.language %>
-              </button>
-            <% }) %>
+                </button>
+                <% }) %>
 
-        </form>
+            </form>
+        </div>
 
-        <%- include('./partials/stories') %>
+        <div class="gallery">
+
+            <%- include('./partials/stories') %>
+
+            <button class="prevBTN" title="previous" hidden><</button>
+            <button class="nextBTN" title="next" hidden>></button>
+
+        </div>
 
     </section>
 

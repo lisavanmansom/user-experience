@@ -10,16 +10,17 @@
                 <% } %>
 
                 
-                    <h5><%= story.title %></h5>
-
-                    <img src="https://fdnd-agency.directus.app/assets/<%= language.flag %>" width="25" height="10"
-                    onerror="this.onerror=null;this.src='Placeholder-2.png';" alt="language flag">
+                    <div class="story-info">
+                      <img src="https://fdnd-agency.directus.app/assets/<%= language.flag %>" width="25" height="10"
+                      onerror="this.onerror=null;this.src='Placeholder-2.png';" alt="language flag">
+                      
+                      <h5><%= story.title %></h5>
                     
-                    <p><%= story.summary %></p>
+                      <p><%= story.summary %></p>
       
-                    <%- include('./svg-play') %> 
+                      <%- include('./svg-play') %> 
       
-                    <p>3 min. 5sec</p>
+                      <p>3 min. 5sec</p>
 
                 </a>
       
@@ -27,7 +28,7 @@
                     <%- include('./svg-download') %></button>
       
                 <button title="add to playlist">
-                    <%- include('./svg-add') %></button>
+                    <%- include('./svg-add') %></button></div>
 
                 
         </article><% }) %>
