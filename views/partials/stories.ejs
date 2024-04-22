@@ -3,7 +3,7 @@
 
         <article><a>
           <% if (story.image) { %>
-                <img class="story-img"src="https://fdnd-agency.directus.app/assets/<%= story.image.id %>" width="<%= story.image.width %>" height="<%= story.image.height %>" alt="story">
+                <img class="story-img"src="https://fdnd-agency.directus.app/assets/<%= story.image.id %>" width="<%= story.image.width %>" height="<%= story.image.height %>" loading="lazy" alt="story">
                 <% } else{ %> 
 
                 <img class="playlist-img" src="./Placeholder-1.png" width="448" height="380" alt="playlist"> 
