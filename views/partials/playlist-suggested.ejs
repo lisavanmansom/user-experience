@@ -1,4 +1,4 @@
-<% playlist.forEach(item => { %>
+<% playlist.slice(0,4).forEach(item => { %>
     <article>
     <a> 
       <% if (item.image) { %>
@@ -9,7 +9,6 @@
     <h5><%= item.title %></h5>
       
     <%- include('./svg-play') %>
-      <p>31 min. 55sec</p>
     </a>
   
     <form method="POST" action="/<%= item.id %>/like-or-unlike">
@@ -18,6 +17,7 @@
         <%- include('./svg-unlike') %></button>
   
       </form>
+
     </article>
   <% }) %>
   
