@@ -47,27 +47,52 @@
 
             <%- include('./partials/stories') %>
 
-            <button class="prevBTN" title="previous" hidden><</button>
-            <button class="nextBTN" title="next" hidden>></button>
+        </div>
 
+        <div class="tab-buttons" >
+            <button class="prevBTN" title="previous"><</button>
+            <button class="nextBTN" title="next">></button>
         </div>
 
     </section>
 
     <section class="liked-playlist">
-        <h4>Liked playlists</h4>
-
         <div class="slayrousel">
-            <%- include('./partials/playlist-liked') %>
+            <div class="circle-text">
+                <svg viewBox="0 0 100 100">
+                <path d="M 0,50 a 50,50 0 1, 1 0, 1 z" id="circle"></path>
+                
+                <text><textPath xlink:href="#circle">
+                    liked playlist
+                </textPath></text>
+
+            </svg></div>
+
+            <div class="art-slayrousel">
+                <%- include('./partials/playlist-liked') %>
+            </div>
         </div>
 
     </section>
 
     <section class="suggested-playlist">
-        <h4>Suggested playlists</h4>
-            <div class="slayrousel">
-        <%- include('./partials/playlist-suggested') %>
-    </div>
+
+        <!-- <h4>Suggested playlists</h4> -->
+
+        <div class="slayrousel">
+            <div class="circle-text">
+                <svg viewBox="0 0 100 100">
+                <path d="M 0,50 a 50,50 0 1, 1 0, 1 z" id="circle"></path>
+                
+                <text><textPath xlink:href="#circle">
+                    suggested playlist
+                </textPath></text>
+
+            </svg></div>
+            <div class="art-slayrousel">
+                <%- include('./partials/playlist-suggested') %>
+            </div>     
+        </div>
     
     </section>
 </main>
