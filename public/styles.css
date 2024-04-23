@@ -552,10 +552,15 @@ footer  { background-color: var(--black); border-top: 2px solid var(--white);
                 opacity: .75;
               }
   
-              .play-svg, h5, p , form {
+              .play-svg, h5, p {
                 z-index: 100;
                 position: absolute;
               } 
+
+              form {
+                z-index: 110;
+                position: absolute;
+              }
               
               h5 {
                 bottom: 0;
@@ -597,12 +602,14 @@ footer  { background-color: var(--black); border-top: 2px solid var(--white);
       }
       .circle-text path { 
         fill: none; 
+        pointer-events: none;
        }
        
        .circle-text {
         width: 580px;
         height: 580px;
         font-size: 0.8em;
+        pointer-events: none;
         letter-spacing: .2em;
         /* animation: rotate-center 20s linear infinite both; */
         position: absolute;
@@ -676,10 +683,16 @@ footer  { background-color: var(--black); border-top: 2px solid var(--white);
               opacity: .75;
             }
 
-            .play-svg, h5, p , form {
+            .play-svg, h5, p  {
               z-index: 100;
               position: absolute;
             } 
+
+            form {
+              z-index: 110;
+              position: absolute;
+              cursor: pointer;
+            }
             
             h5 {
               bottom: 0;
@@ -721,6 +734,7 @@ footer  { background-color: var(--black); border-top: 2px solid var(--white);
 
     .circle-text path { 
       fill: none; 
+      pointer-events: none;
      }
 
      .circle-text {
@@ -732,6 +746,7 @@ footer  { background-color: var(--black); border-top: 2px solid var(--white);
       position: absolute;
       z-index: 10;
       text-transform: uppercase;
+      pointer-events: none;
        
        svg {
           display: block;
