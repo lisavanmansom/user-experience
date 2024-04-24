@@ -1,7 +1,15 @@
 <% playlist.forEach(playlist => { %>
     <article><a>
         <% if (playlist.image) { %>
-            <img class="playlist-img" src="https://fdnd-agency.directus.app/assets/<%= playlist.image.id %>" width="<%= playlist.image.width %>" height="<%= playlist.image.height %>"  alt="playlist">
+
+            <picture>
+                <source srcset="https://fdnd-agency.directus.app/assets/<%= playlist.image.id %>.avif" type="images/avif">
+                <source srcset="https://fdnd-agency.directus.app/assets/<%= playlist.image.id %>.webp" type="images/webp">
+                
+                <img class="playlist-img" src="https://fdnd-agency.directus.app/assets/<%= playlist.image.id %>" width="<%= playlist.image.width %>" height="<%= playlist.image.height %>"  alt="playlist">
+            
+            </picture>
+
         <% }  else { %> 
             <img class="playlist-img" src="./Placeholder-1.png" width="448" height="380" alt="playlist"> 
         <% } %>

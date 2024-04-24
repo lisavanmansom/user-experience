@@ -2,9 +2,20 @@
     <article>
     <a> 
       <% if (item.image) { %>
-      <img class="playlist-img" src="https://fdnd-agency.directus.app/assets/<%= item.image.id %>" width="<%= item.image.width %>" height="<%= item.image.height %>" loading="lazy" alt="playlist">
+      <picture>
+        <source srcset="https://fdnd-agency.directus.app/assets/<%= item.image.id %>.avif" type="image/avif">
+        <source srcset="https://fdnd-agency.directus.app/assets/<%= item.image.id %>.webp" type="image/webp">
+        
+        <img class="playlist-img" src="https://fdnd-agency.directus.app/assets/<%= item.image.id %>" width="<%= item.image.width %>" height="<%= item.image.height %>" loading="lazy" alt="playlist">
+      
+      </picture>
+
+
       <% }  else { %> 
+    <picture>
       <img class="playlist-img" src="./Placeholder-1.png" width="200" height="200" alt="playlist"> 
+    </picture>
+
     <% } %>
     <h5><%= item.title %></h5>
       
