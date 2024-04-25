@@ -1,7 +1,12 @@
 <nav class="navigatie">
   <script src="/script.js" defer></script>
     <ul>
-      <li>Tumi Mundo</li>
+      <div class="mobile">
+        <p>Tumi Mundo</p>
+        <li><div class="hamburger"> <span class="bar"></span><span class="bar"></span><span class="bar"></span></div></li>
+        
+      </div>
+      <div class="desktop">
       <li><a href="/" 
           <% if (current == '/') { %> class="active active-1" <% } %>>
             <p>Home</p>
@@ -27,8 +32,7 @@
 
             <p>Profile</p>
 
-          </a></li>
+          </a></li></div>
     </ul>
     
   </nav>
-

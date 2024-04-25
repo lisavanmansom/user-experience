@@ -1,4 +1,16 @@
- // external JS file GSAP
+// hamburger menu select
+let hamburger = document.querySelector('.hamburger')
+let navMenu = document.querySelector('.desktop')
+
+// hamburger menu addeventlistener
+hamburger.addEventListener("click", () => { 
+ navMenu.classList.toggle('nav-active');
+ navMenu.classList.toggle('desktop');
+ hamburger.classList.toggle('active-bar');
+
+});
+
+// external JS file GSAP
  document.addEventListener("DOMContentLoaded", (event) => {
     gsap.registerPlugin(Draggable)
    });

@@ -106,19 +106,141 @@ footer  { background-color: var(--black); border-top: 2px solid var(--white);
 
 /* ----------------------------------------------------------------- */
 /* styling nav */           
-.navigatie {
-  align-items: center;
-  background-color: var(--black);
-  border-bottom: 2px solid white;
-  display: flex;
-  flex-wrap: wrap;
-  height: 100%;
-  justify-content: center;
-  position: sticky;
-  text-align: center;
-  width: 100%;
-  z-index: 9;
+body {
+  font-family: "poppins";
+  > nav {
+    align-items: center;
+    background-color: var(--bg-method);
+    display: flex;
+    height: 100%;
+    position: sticky;
+    z-index: 9;
+    border-bottom: 2px solid white;
+
+    ul{
+      display: flex;    
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      width: 100%; 
+      list-style: none;
+
+      > li {
+      border-radius: 20px;
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      width: 5em; height: 4em;
+    }
+
+    li:nth-of-type(1) p:hover {
+      color: var(--home-1);
+      transition: .3s linear;
+    }
+
+    li:nth-of-type(3) p:hover {
+      color: var(--method-1-l);
+      transition: .3s linear;
+    }
+
+    .mobile {
+      align-items: center;
+      background-color: var(--bg-method);
+      width: 100%;
+      display: flex; 
+      justify-content: space-between;
+      height: 3em;
+      padding: 0 1em;
+      text-transform: uppercase;
+      z-index: 10;
+
+      .hamburger {
+        width: 3em; height: 2em;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        z-index: 10;
+      
+      >  .bar {
+        background-color: var(--white);
+        display: block; 
+        height: 2px;
+        margin: 3px 0;
+        transition: all 0.5s ease-in-out;
+        -webkit-transition: all 0.5s ease-in-out;
+        width: 27px;
+      }
+      }
+    }
+
+    a {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      justify-content: center;
+    }
+    p {
+      font-size: 20px;
+    }
+  }
+
+.active {
+  border-bottom: 1px solid var(--white);
+  border-top: 1px solid var(--white);
 }
+
+.active-1 p {
+  color: var(--home-1);
+}
+
+.active-3 p {
+  color: var(--method-1-l);
+}
+  }
+}
+
+/* Javascript classes aanpassingen */
+.nav-active {
+  position: absolute; top: 47px; right: 0; left: 0;
+
+  transition: all 0.5s ease-in-out;
+  -webkit-transition: all 0.5s ease-in-out;
+
+  background-color: var(--bg-method);
+  width: 100%;
+  height: 100vh;
+  display: flex; 
+  flex-direction: column;
+  justify-content: start;
+  gap: .75em;
+  padding: 1.5em 0;
+
+  p {
+    font-size: 25px;
+  }
+}
+
+.desktop {
+  position: absolute; top: -1000px; right: 0; left: 0;
+  
+  transition: all 0.5s ease-in-out;
+  -webkit-transition: all 0.5s ease-in-out;
+  
+}
+
+.hamburger.active-bar .bar:nth-child(2){
+  opacity: 0;
+}
+
+.hamburger.active-bar .bar:nth-child(1){
+  transform: translateY(7px) rotate(45deg);
+}
+
+.hamburger.active-bar .bar:nth-child(3){
+  transform: translateY(-9px) rotate(-45deg);
+}
+
 /* ----------------------------------------------------------------- */
 /* styling home-page */
 .home {
