@@ -7,8 +7,25 @@ hamburger.addEventListener("click", () => {
  navMenu.classList.toggle('nav-active');
  navMenu.classList.toggle('desktop');
  hamburger.classList.toggle('active-bar');
-
 });
+
+// PE suggested + liked playlist section -------------------------
+const body = document.querySelector('body')
+const likedCircle = document.querySelector('.liked-circle')
+const sugCircle = document.querySelector('.sug-circle')
+const hiddenHeader = document.querySelectorAll('.hidden-header')
+const prevBTN = document.querySelector('.prevBTN')
+const nextBTN = document.querySelector('.nextBTN')
+
+// JS code added & removing styling without JS
+body.classList.add('has-js')
+body.classList.remove('sug-no-js')
+body.classList.remove('liked-no-js')
+// hide content no function w/o JS
+likedCircle.hidden = false
+sugCircle.hidden = false
+nextBTN.hidden = false
+prevBTN.hidden = false
 
 // Carousel liked + suggested playlist --------------------
 // external JS file GSAP 
@@ -21,17 +38,6 @@ Draggable.create(".slayrousel", {
     type: "rotation",
     inertia: true
   });
-
-// PE suggested + liked playlist section
-const body = document.querySelector('body')
-const circletext = document.querySelector('.circle-text')
-const hiddenHeader = document.querySelectorAll('.hidden-header')
-
-// JS code added & circle showing
-body.classList.add('has-js')
-body.classList.remove('suggested-no-js')
-body.classList.remove('liked-no-js')
-circletext.hidden = false
 
 // Clientside fetch -------------------------------
 let forms = document.querySelectorAll("form.like-form");
@@ -68,6 +74,5 @@ forms.forEach(function (form) {
 
   });
 });
-
 
 // Allstories carousel -------------------------------
