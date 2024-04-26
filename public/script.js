@@ -1,6 +1,8 @@
+
 // Nav hamburger menu select ------------------------------
 let hamburger = document.querySelector('.hamburger')
 let navMenu = document.querySelector('.desktop')
+let lessons = document.querySelector('.lessons')
 
 // hamburger menu addeventlistener
 hamburger.addEventListener("click", () => { 

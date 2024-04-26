@@ -1,6 +1,3 @@
-console.log('Hier komt je server')
-/*** Express setup & start ***/
-
 // 1. Opzetten van de webserver
 
 // Importeer de zelfgemaakte functie fetchJson uit de ./helpers map
@@ -47,7 +44,7 @@ app.get('/lessons', function(request, response) {
   fetchJson('https://fdnd-agency.directus.app/items/tm_story?fields=*,image.id,image.height,image.width'),
   fetchJson('https://fdnd-agency.directus.app/items/tm_language'),
   fetchJson('https://fdnd-agency.directus.app/items/tm_playlist?fields=*,image.id,image.height,image.width'),
-  fetchJson('ht(tps://fdnd-agency.directus.app/items/tm_audio')]).then(([storyData, languageData, playlistData, audioData]) => { 
+  fetchJson('https://fdnd-agency.directus.app/items/tm_audio')]).then(([storyData, languageData, playlistData, audioData]) => { 
     
     // like array toegevoegd worden op de API data...
     playlistData.data = playlistData.data.map((item)=>{
@@ -60,8 +57,9 @@ app.get('/lessons', function(request, response) {
       language: languageData.data,
       playlist: playlistData.data,
       audio: audioData.data,
-      favorites: favorites})
-  });
+      favorites: favorites
+    })
+  })
 })
 
 app.get('/allstories', function(request, response) {
