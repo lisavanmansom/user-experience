@@ -630,96 +630,13 @@ body {
     }/* end stories section */
 
   /* liked playlist section */
-  > .liked-no-js, .sug-no-js {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    margin: 3.5em 0 0 0;
-    overflow-y: hidden;
-    width: 100%;
-
-    h4 {
-      width: 11em;
-      max-width: 60rem;
-      font-size: 24px; 
-    }
-
-    > .slayrousel{
-      width: 100%;
-      
-      >.art-slayrousel {
-      align-items: start;
-      display: flex;
-      flex-wrap: wrap;
-      flex-direction: column;
-      gap: 1.5em;
-      height: 15em;
-      justify-content: flex-start;
-      margin: 1em 0 1em 1.8em;
-      overflow-x: scroll;
-      width: 100%;
-
-      scroll-snap-type: x mandatory;
-
-      > article {
-        background-color: var(--white);
-        border-radius: var(--radius-2);
-        height: 13em;
-        width: 8em;
-        position: relative;
-
-        scroll-snap-align: center;
-  
-        > a {
-          align-items: center;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-  
-          img {
-            border-radius: var(--radius-2);
-            margin: 1em 0 .75em 0;
-          }
-  
-          h5 {
-            text-align:left ;
-            width: 6.85em;
-            height: 3em;
-            color: var(--black);
-          }
-
-          svg {
-            margin: .5em 6em 0 0;
-          }
-        }
-
-       > form {
-          right: .5em;
-          bottom: 0em;
-          position: absolute; 
-       }
-  
-        > a, p {
-          color: var(--black);
-          font-weight: 200;
-          text-align: center;
-        }
-  
-        > p {
-          margin: .25em 0 0 0;
-          font-weight: 100;
-          font-size: 11px;
-          
-        }
-      }
-    }
-  }
- }/* end liked + suggested playlist section */
+  /* end liked + suggested playlist section */
 
  > section:nth-of-type(4) {
   margin: 0em;
  }
 }
+
 
 .has-js {
   >.lessons {
@@ -974,7 +891,96 @@ body {
    }
    }/* endtag section 4  */
 }
-}
+} /* endtag main  */
+
+/* only working without js */
+.liked-no-js {
+  > .lessons {
+    > section:nth-of-type(3), section:nth-of-type(4) {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      margin: 3.5em 0 0 0;
+      overflow-y: hidden;
+      width: 100%;
+
+      h4 {
+        width: 11em;
+        max-width: 60rem;
+        font-size: 24px; 
+      }
+
+      > .slayrousel{
+        width: 100%;
+    
+      >.art-slayrousel {
+        align-items: start;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        gap: 1.5em;
+        height: 15em;
+        justify-content: flex-start;
+        margin: 1em 0 1em 1.8em;
+        overflow-x: scroll;
+        width: 100%;
+
+        scroll-snap-type: x mandatory;
+
+        > article {
+          background-color: var(--white);
+          border-radius: var(--radius-2);
+          height: 13em;
+          width: 8em;
+          position: relative;
+
+          scroll-snap-align: center;
+
+          > a {
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            img {
+              border-radius: var(--radius-2);
+              margin: 1em 0 .75em 0;
+            }
+
+            h5 {
+              text-align:left ;
+              width: 6.85em;
+              height: 3em;
+              color: var(--black);
+            }
+
+            svg {
+              margin: .5em 6em 0 0;
+            }
+          }
+
+          > form {
+            right: .5em;
+            bottom: 0em;
+            position: absolute; 
+          }
+
+          > a, p {
+            color: var(--black);
+            font-weight: 200;
+            text-align: center;
+          }
+
+          > p {
+            margin: .25em 0 0 0;
+            font-weight: 100;
+            font-size: 11px;
+          }
+        }
+      }
+    }
+  }
+}}
 
 @keyframes rotate-center {
   0% {
@@ -986,8 +992,6 @@ body {
             transform: rotate(360deg);
   }
 }
-
-
 
 /* ----------------------------------------------------------------- */
 /* styling allstories-page */
@@ -1001,3 +1005,4 @@ body {
   background-color: hsla( 0, 0%, 0%,1);
   color: var(--white);
 }
+

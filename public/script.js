@@ -1,8 +1,12 @@
-
-// Nav hamburger menu select ------------------------------
+// elements selecteren
 let hamburger = document.querySelector('.hamburger')
 let navMenu = document.querySelector('.desktop')
-let lessons = document.querySelector('.lessons')
+let body = document.querySelector('body');
+var likedCircle = document.querySelector('.liked-circle')
+var sugCircle = document.querySelector('.sug-circle')
+var hiddenHeader = document.querySelectorAll('.hidden-header')
+var prevBTN = document.querySelector('.prevBTN')
+var nextBTN = document.querySelector('.nextBTN')
 
 // hamburger menu addeventlistener
 hamburger.addEventListener("click", () => { 
@@ -11,25 +15,17 @@ hamburger.addEventListener("click", () => {
  hamburger.classList.toggle('active-bar');
 });
 
-// PE suggested + liked playlist section -------------------------
-const body = document.querySelector('body')
-const likedCircle = document.querySelector('.liked-circle')
-const sugCircle = document.querySelector('.sug-circle')
-const hiddenHeader = document.querySelectorAll('.hidden-header')
-const prevBTN = document.querySelector('.prevBTN')
-const nextBTN = document.querySelector('.nextBTN')
-
+// PE suggested + liked playlist section
 // JS code added & removing styling without JS
-body.classList.add('has-js')
-body.classList.remove('sug-no-js')
-body.classList.remove('liked-no-js')
+body.classList.remove("liked-no-js", "sug-no-js");
+body.classList.add('has-js');
 // hide content no function w/o JS
 likedCircle.hidden = false
 sugCircle.hidden = false
 nextBTN.hidden = false
 prevBTN.hidden = false
 
-// Carousel liked + suggested playlist --------------------
+// Carousel liked + suggested playlist
 // external JS file GSAP 
  document.addEventListener("DOMContentLoaded", (event) => {
     gsap.registerPlugin(Draggable)
@@ -41,8 +37,8 @@ Draggable.create(".slayrousel", {
     inertia: true
   });
 
-// Clientside fetch -------------------------------
-let forms = document.querySelectorAll("form.like-form");
+// Clientside fetch 
+var forms = document.querySelectorAll("form.like-form");
 // loop door forms
 forms.forEach(function (form) {
 
@@ -77,4 +73,4 @@ forms.forEach(function (form) {
   });
 });
 
-// Allstories carousel -------------------------------
+// Allstories carousel 
