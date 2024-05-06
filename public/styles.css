@@ -644,31 +644,167 @@ body {
       display: none;
     }
 
-  > .liked-playlist {
-    align-items: start;
-    background-color: black;
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    padding: 7.5em 0 0em 0;
+  > .playlist-overview {
+    background-image: url("/mesh-600.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: repeat;
     height: auto;
     width: 100%;
-    gap: .5em;
- 
-    .slayrousel {
-      margin: 1em 0em 0 -21em;
-      z-index: 100;
 
-      .art-slayrousel {
-        aspect-ratio: 1;
-        border: white solid .15em;
-        outline: var(--method-1-d2) solid 3.5em;
-        display: grid;
-        overflow: hidden;
-        border-radius: 50%;
-        place-items: center;
-        width: 36em;
-
+    .liked-playlist {
+      align-items: start;
+      display: flex;
+      flex-direction: column;
+      justify-content: start;
+      padding: 7.5em 0 0em 0;
+      height: auto;
+      width: 100%;
+      gap: .5em;
+   
+      .slayrousel {
+        margin: 1em 0em 0 -21em;
+        z-index: 100;
+  
+        .art-slayrousel {
+          aspect-ratio: 1;
+          border: white solid .15em;
+          outline: var(--method-1-d2) solid 3.5em;
+          display: grid;
+          overflow: hidden;
+          border-radius: 50%;
+          place-items: center;
+          width: 36em;
+  
+          article {
+            width: 19em;
+            grid-area: 1/1;
+            width: 19em;
+            aspect-ratio: 1;
+            gap: 1em;
+            position: relative;
+            transform: rotate(var(--angle, 0deg)) translateY(-11em) translateX(9em);
+              
+              img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                position: absolute;
+                opacity: .75;
+              }
+  
+              .play-svg, h5, p {
+                z-index: 100;
+                position: absolute;
+              } 
+  
+              form {
+                z-index: 110;
+                position: absolute;
+              }
+              
+              h5 {
+                bottom: 0;
+                font-size: 1.6em;
+                padding: 4em 0 0 .75em;
+                width: 100%;
+                height: 6em;
+                background: linear-gradient(0deg, rgba(27, 18, 69, 1) 0%, rgba(255, 0, 0, 0) 100%);
+              }
+  
+              .play-svg {
+                bottom: .75em;
+                right: 4.5em;
+              }
+  
+              form {
+                top: 5em;
+                left: 1em;
+              }
+          }
+    
+          > article:nth-of-type(1) {
+            --angle:0deg;
+          }
+    
+          > article:nth-of-type(2) {
+            --angle:90deg;
+          }
+    
+          > article:nth-of-type(3) {
+            --angle:180deg;
+          }
+    
+          > article:nth-of-type(4) {
+            --angle:270deg;
+          }
+  
+        }
+      }
+      .liked-circle path { 
+        fill: none; 
+        pointer-events: none;
+       }
+       
+       .liked-circle {
+        width: 580px;
+        height: 580px;
+        font-size: 0.8em;
+        pointer-events: none;
+        letter-spacing: .2em;
+        animation: rotate-center 20s linear infinite both;
+        position: absolute;
+        z-index: 10;
+        text-transform: uppercase;
+         
+         svg {
+            display: block;
+            overflow: visible;
+            color: var(--white);
+            fill: var(--method-1-l);
+            font-family: var(--primary-font);
+         }
+       }
+    } /* end liked playlist section */
+  
+    .like-svg {
+      width: 35px;
+      height: 35px;
+  
+    }
+    
+    > .sug-playlist {
+      display: flex;
+      flex-direction: column;
+      justify-content: end;
+      align-items: end;
+      padding: 8em 0 10em 0;
+      height: auto;
+      overflow: hidden;
+      width: 100%;
+      gap: .5em;
+  
+  
+      h4 {
+        font-size: 1.8em;
+        text-align: left;
+        padding: 1em 0em 1em 1em;
+      }
+  
+      .slayrousel {
+        margin: 1em -21em 0 0;
+        position: relative;
+  
+        .art-slayrousel {
+          overflow: hidden;
+          aspect-ratio: 1;
+          border: var(--white) solid .15em;
+          outline: var(--method-1-d2) solid 3.5em;
+          display: grid;
+          border-radius: 50%;
+          place-items: center;
+          width: 36em;
+  
         article {
           width: 19em;
           grid-area: 1/1;
@@ -685,15 +821,16 @@ body {
               position: absolute;
               opacity: .75;
             }
-
-            .play-svg, h5, p {
+  
+            .play-svg, h5, p  {
               z-index: 100;
               position: absolute;
             } 
-
+  
             form {
               z-index: 110;
               position: absolute;
+              cursor: pointer;
             }
             
             h5 {
@@ -704,12 +841,12 @@ body {
               height: 6em;
               background: linear-gradient(0deg, rgba(27, 18, 69, 1) 0%, rgba(255, 0, 0, 0) 100%);
             }
-
+  
             .play-svg {
               bottom: .75em;
               right: 4.5em;
             }
-
+  
             form {
               top: 5em;
               left: 1em;
@@ -731,24 +868,24 @@ body {
         > article:nth-of-type(4) {
           --angle:270deg;
         }
-
+        }
       }
-    }
-    .liked-circle path { 
+  
+    .sug-circle path { 
       fill: none; 
       pointer-events: none;
      }
-     
-     .liked-circle {
+  
+     .sug-circle {
       width: 580px;
       height: 580px;
       font-size: 0.8em;
-      pointer-events: none;
       letter-spacing: .2em;
-      animation: rotate-center 20s linear infinite both;
+      animation: rotate-center 30s linear infinite both;
       position: absolute;
       z-index: 10;
       text-transform: uppercase;
+      pointer-events: none;
        
        svg {
           display: block;
@@ -758,229 +895,106 @@ body {
           font-family: var(--primary-font);
        }
      }
-  } /* end liked playlist section */
-
-  .like-svg {
-    width: 35px;
-    height: 35px;
-
+     }/* endtag section 4  */
   }
-  
-  > .sug-playlist {
-    display: flex;
-    flex-direction: column;
-    justify-content: end;
-    align-items: end;
-    background-color: black;
-    padding: 8em 0 10em 0;
-    height: auto;
-    overflow: hidden;
-    width: 100%;
-    gap: .5em;
-
-
-    h4 {
-      font-size: 1.8em;
-      text-align: left;
-      padding: 1em 0em 1em 1em;
-    }
-
-    .slayrousel {
-      margin: 1em -21em 0 0;
-      position: relative;
-
-      .art-slayrousel {
-        overflow: hidden;
-        aspect-ratio: 1;
-        border: var(--white) solid .15em;
-        outline: var(--method-1-d2) solid 3.5em;
-        display: grid;
-        border-radius: 50%;
-        place-items: center;
-        width: 36em;
-
-      article {
-        width: 19em;
-        grid-area: 1/1;
-        width: 19em;
-        aspect-ratio: 1;
-        gap: 1em;
-        position: relative;
-        transform: rotate(var(--angle, 0deg)) translateY(-11em) translateX(9em);
-          
-          img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            position: absolute;
-            opacity: .75;
-          }
-
-          .play-svg, h5, p  {
-            z-index: 100;
-            position: absolute;
-          } 
-
-          form {
-            z-index: 110;
-            position: absolute;
-            cursor: pointer;
-          }
-          
-          h5 {
-            bottom: 0;
-            font-size: 1.6em;
-            padding: 4em 0 0 .75em;
-            width: 100%;
-            height: 6em;
-            background: linear-gradient(0deg, rgba(27, 18, 69, 1) 0%, rgba(255, 0, 0, 0) 100%);
-          }
-
-          .play-svg {
-            bottom: .75em;
-            right: 4.5em;
-          }
-
-          form {
-            top: 5em;
-            left: 1em;
-          }
-      }
-
-      > article:nth-of-type(1) {
-        --angle:0deg;
-      }
-
-      > article:nth-of-type(2) {
-        --angle:90deg;
-      }
-
-      > article:nth-of-type(3) {
-        --angle:180deg;
-      }
-
-      > article:nth-of-type(4) {
-        --angle:270deg;
-      }
-      }
-    }
-
-  .sug-circle path { 
-    fill: none; 
-    pointer-events: none;
-   }
-
-   .sug-circle {
-    width: 580px;
-    height: 580px;
-    font-size: 0.8em;
-    letter-spacing: .2em;
-    animation: rotate-center 30s linear infinite both;
-    position: absolute;
-    z-index: 10;
-    text-transform: uppercase;
-    pointer-events: none;
-     
-     svg {
-        display: block;
-        overflow: visible;
-        color: var(--white);
-        fill: var(--method-1-l);
-        font-family: var(--primary-font);
-     }
-   }
-   }/* endtag section 4  */
-}
+  }
 } /* endtag main  */
 
 /* only working without js */
 .liked-no-js {
   > .lessons {
-    > section:nth-of-type(3), section:nth-of-type(4) {
-      align-items: center;
-      display: flex;
-      flex-direction: column;
-      margin: 3.5em 0 0 0;
-      overflow-y: hidden;
+    > .playlist-overview {
       width: 100%;
 
-      h4 {
-        width: 11em;
-        max-width: 60rem;
-        font-size: 24px; 
-      }
-
-      > .slayrousel{
-        width: 100%;
-    
-      >.art-slayrousel {
-        align-items: start;
+      > .liked-playlist, .sug-playlist, .liked-playlist {
+        align-items: center;
         display: flex;
-        flex-wrap: wrap;
         flex-direction: column;
-        gap: 1.5em;
-        height: 15em;
-        justify-content: flex-start;
-        margin: 1em 0 1em 1.8em;
-        overflow-x: scroll;
+        margin: 3.5em 0 0 0;
+        overflow-y: hidden;
         width: 100%;
-
-        scroll-snap-type: x mandatory;
-
-        > article {
-          background-color: var(--white);
-          border-radius: var(--radius-2);
-          height: 13em;
-          width: 8em;
-          position: relative;
-
-          scroll-snap-align: center;
-
-          > a {
-            align-items: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-
-            img {
-              border-radius: var(--radius-2);
-              margin: 1em 0 .75em 0;
+  
+        h4 {
+          width: 11em;
+          max-width: 60rem;
+          font-size: 24px; 
+        }
+  
+        > .slayrousel{
+          width: 100%;
+      
+        >.art-slayrousel {
+          align-items: start;
+          display: flex;
+          flex-wrap: wrap;
+          flex-direction: column;
+          gap: 1.5em;
+          height: 15em;
+          justify-content: flex-start;
+          margin: 1em 0 1em 1.8em;
+          overflow-x: scroll;
+          width: 100%;
+  
+          scroll-snap-type: x mandatory;
+  
+          > article {
+            background-color: var(--white);
+            border-radius: var(--radius-2);
+            height: 13em;
+            width: 8em;
+            position: relative;
+  
+            scroll-snap-align: center;
+  
+            > a {
+              align-items: center;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+  
+              img {
+                border-radius: var(--radius-2);
+                margin: 1em 0 .75em 0;
+              }
+  
+              h5 {
+                text-align:left ;
+                width: 6.85em;
+                height: 3em;
+                color: var(--black);
+              }
+  
+              svg {
+                margin: .5em 6em 0 0;
+              }
             }
-
-            h5 {
-              text-align:left ;
-              width: 6.85em;
-              height: 3em;
+  
+            > form {
+              right: .5em;
+              bottom: 0em;
+              position: absolute; 
+            }
+  
+            > a, p {
               color: var(--black);
+              font-weight: 200;
+              text-align: center;
             }
-
-            svg {
-              margin: .5em 6em 0 0;
+  
+            > p {
+              margin: .25em 0 0 0;
+              font-weight: 100;
+              font-size: 11px;
             }
-          }
-
-          > form {
-            right: .5em;
-            bottom: 0em;
-            position: absolute; 
-          }
-
-          > a, p {
-            color: var(--black);
-            font-weight: 200;
-            text-align: center;
-          }
-
-          > p {
-            margin: .25em 0 0 0;
-            font-weight: 100;
-            font-size: 11px;
           }
         }
       }
     }
+    }
+      
   }
-}}
+    }
+    
 
 @keyframes rotate-center {
   0% {
