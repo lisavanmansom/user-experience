@@ -3,8 +3,8 @@
         <% if (playlist.image) { %>
 
             <picture>
-                <source srcset="https://fdnd-agency.directus.app/assets/<%= playlist.image.id %>.avif" type="images/avif">
-                <source srcset="https://fdnd-agency.directus.app/assets/<%= playlist.image.id %>.webp" type="images/webp">
+                <source srcset="https://fdnd-agency.directus.app/assets/<%= playlist.image.id %>?format=avif" type="images/avif">
+                <source srcset="https://fdnd-agency.directus.app/assets/<%= playlist.image.id %>?format=webp" type="images/webp">
                 
                 <img class="playlist-img" src="https://fdnd-agency.directus.app/assets/<%= playlist.image.id %>" width="<%= playlist.image.width %>" height="<%= playlist.image.height %>"  alt="playlist">
             

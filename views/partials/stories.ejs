@@ -5,8 +5,8 @@
           <% if (story.image) { %>
 
             <picture>
-              <source srcset="https://fdnd-agency.directus.app/assets/<%= story.image.id %>.avif" type="image/avif"> 
-              <source srcset="https://fdnd-agency.directus.app/assets/<%= story.image.id %>.webp" type="image/webp"> 
+              <source srcset="https://fdnd-agency.directus.app/assets/<%= story.image.id %>?format=avif" type="image/avif"> 
+              <source srcset="https://fdnd-agency.directus.app/assets/<%= story.image.id %>?format=webp" type="image/webp"> 
               
               <img class="story-img"src="https://fdnd-agency.directus.app/assets/<%= story.image.id %>" width="<%= story.image.width %>" height="<%= story.image.height %>" loading="lazy" alt="story">
               
@@ -20,8 +20,8 @@
                     <div class="story-info">
 
                     <picture>
-                      <source srcset="https://fdnd-agency.directus.app/assets/<%= language.flag %>.avif" type="image/avif">
-                      <source srcset="https://fdnd-agency.directus.app/assets/<%= language.flag %>.webp" type="image/webp">
+                      <source srcset="https://fdnd-agency.directus.app/assets/<%= language.flag %>?format=avif" type="image/avif">
+                      <source srcset="https://fdnd-agency.directus.app/assets/<%= language.flag %>?format=webp" type="image/webp">
                         
                       <img src="https://fdnd-agency.directus.app/assets/<%= language.flag %>" width="25" height="10"
                         onerror="this.onerror=null;this.src='Placeholder-2.png';" alt="language flag">
