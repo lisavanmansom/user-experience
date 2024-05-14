@@ -38,12 +38,11 @@ Draggable.create(".slayrousel", {
   });
 
 // Clientside fetch 
-var forms = document.querySelectorAll("form.like-form");
+let forms = document.querySelectorAll("form.like-form");
 // loop door forms
 forms.forEach(function (form) {
-
-  form.addEventListener("submit", function (event) {
-    
+  form.addEventListener('submit', function (event) {
+  
     // leest data form + geeft extra eigenschap mee
     let data = new FormData(this);
     data.append("enhanced", true);
@@ -53,24 +52,18 @@ forms.forEach(function (form) {
       method: this.method,
       body: new URLSearchParams(data),
     })
-
     // return html
     .then(function (response) {
-      return response.text();
+        return response.text()
+    }).then(function(responseHTML) {
+        document.querySelector(".liked-playlist").innerHTML = responseHTML;
+        console.log(responseHTML);
     })
-
-    // Aanpassing DOM
-    .then(function (responseHTML) {
-      document.querySelector(".liked-playlist > .art-slayrousel").innerHTML = responseHTML;
-      console.log(responseHTML);
-    })
-    .catch(function (error) {
-      console.error('Error:', error);
-    });
 
     event.preventDefault()
 
+    })
   });
-});
+
 
 // Allstories carousel 
