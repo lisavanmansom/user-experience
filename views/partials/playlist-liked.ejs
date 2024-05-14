@@ -1,39 +1,42 @@
 <% playlist.filter((item) => item.liked ).slice(0,4).forEach(item => { %>
-  <article>
-  <a> 
+<article>
+  <a>
     <% if (item.image) { %>
     <picture>
-      <source srcset="https://fdnd-agency.directus.app/assets/<%= item.image.id %>?format=avif" type="image/avif">
-      <source srcset="https://fdnd-agency.directus.app/assets/<%= item.image.id %>?format=webp" type="image/webp">
-      <img class="playlist-img" src="https://fdnd-agency.directus.app/assets/<%= item.image.id %>" width="<%= item.image.width %>" height="<%= item.image.height %>" loading="lazy" alt="playlist">
+      <source srcset="https://fdnd-agency.directus.app/assets/<%= item.image.id %>?format=avif" type="image/avif" />
+      <source srcset="https://fdnd-agency.directus.app/assets/<%= item.image.id %>?format=webp" type="image/webp" />
+      <img
+        class="playlist-img"
+        src="https://fdnd-agency.directus.app/assets/<%= item.image.id %>"
+        width="<%= item.image.width %>"
+        height="<%= item.image.height %>"
+        loading="lazy"
+        alt="playlist" />
     </picture>
-      <% }  else { %> 
-        
+    <% } else { %>
+
     <picture>
-      <img class="playlist-img" src="./Placeholder-1.png" width="200" height="200" alt="playlist"> 
+      <img class="playlist-img" src="./Placeholder-1.png" width="200" height="200" alt="playlist" />
     </picture>
 
-  <% } %>
-  <h5><%= item.title %></h5>
-    
-  <%- include('./svg-play') %>
+    <% } %>
+    <h5><%= item.title %></h5>
+
+    <%- include('./svg-play') %>
   </a>
 
   <form class="like-form" method="POST" action="/<%= item.id %>/like-or-unlike">
-      
+    <input type="hidden" name="likeId" value="<%= item.id %>" />
+    <input type="hidden" name="id" value="<%= playlist.id %>" />
+
     <% if (!favorites[playlist.id]) { %>
-      <button title="like playlist" type="submit" name="action" value="like">
-        <%- include('./svg-like') %></button>
-      <% } else { %>
+    <button title="like playlist" type="submit" name="action" value="like"><%- include('./svg-like') %></button>
+    <% } else { %>
 
-        <button title="unlike playlist" type="submit" name="action" value="like">
-          <%- include('./svg-unlike') %></button>
-        <% } %>
-        
-    </form>
-  </article>
-<% }) %>
-
-<% if (!playlist.length > 0) { %>
-  <p>You have no liked playlists yet.</p>
+    <button title="unlike playlist" type="submit" name="action" value="like"><%- include('./svg-unlike') %></button>
+    <% } %>
+  </form>
+</article>
+<% }) %> <% if (!playlist.length > 0) { %>
+<p>You have no liked playlists yet.</p>
 <% } %>
