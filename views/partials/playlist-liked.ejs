@@ -30,10 +30,10 @@
     <input type="hidden" name="id" value="<%= playlist.id %>" />
 
     <% if (!favorites[playlist.id]) { %>
-    <button title="like playlist" type="submit" name="action" value="like"><%- include('./svg-like') %></button>
+    <button title="like playlist" type="submit" name="actie" value="like"><%- include('./svg-like') %></button>
     <% } else { %>
 
-    <button title="unlike playlist" type="submit" name="action" value="like"><%- include('./svg-unlike') %></button>
+    <button title="unlike playlist" type="submit" name="actie" value="like"><%- include('./svg-unlike') %></button>
     <% } %>
   </form>
 </article>

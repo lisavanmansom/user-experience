@@ -76,7 +76,7 @@ app.post('/:playlistId/like-or-unlike', function (request, response) {
   console.log(request.body.action, playlistId)
 
   // Implement the logic to handle liking or unliking the playlist
-  if (request.body.action === 'like') {
+  if (request.body.actie === 'like') {
     // posten naar directus..
     fetch(`${apiUrl}/tm_likes/`, {
       method: 'POST',
@@ -91,7 +91,7 @@ app.post('/:playlistId/like-or-unlike', function (request, response) {
       console.log(postResponse)
       response.redirect(303, '/lessons')
     })
-  } else if (request.body.action === 'unlike') {
+  } else if (request.body.actie === 'unlike') {
     // deleten naar directus..
     fetch(`${apiUrl}/tm_likes/${request.body.likeId}`, {
       method: 'DELETE',

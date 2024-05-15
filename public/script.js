@@ -38,9 +38,9 @@ Draggable.create('.slayrousel', {
 })
 
 // Clientside fetch
-// let forms = document.querySelectorAll('form.like-form')
+let forms = document.querySelectorAll('form.like-form')
 // loop door forms
-forms?.forEach(function (form) {
+forms.forEach(function (form) {
   form.addEventListener('submit', function (event) {
     // leest data form + geeft extra eigenschap mee
     let data = new FormData(this)
@@ -56,7 +56,7 @@ forms?.forEach(function (form) {
         return response.text()
       })
       .then(function (responseHTML) {
-        document.querySelector('.liked-playlist').innerHTML = responseHTML
+        document.querySelector('.art-slayrousel').innerHTML = responseHTML
         console.log(responseHTML)
       })
 
