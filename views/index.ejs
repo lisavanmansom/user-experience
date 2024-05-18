@@ -2,13 +2,41 @@
 <%- include('./partials/navigation', {current: '/'}); %>
 
 <main class="home">
-    <h1>Today's listening</h1>
-    <div class="progress-bar"></div> 
-    <p>of your 5-minute goal</p>
 
-    <div>
-        <p>Goodmorning, Shall we start with a story?</p>
-        <a href="/lessons">Let's do it!</a>
-    </div>
-    
+    <section>
+        <div class="h-circle">
+            <svg viewBox="0 0 100 100">
+            <path d="M 0,50 a 50,50 0 1, 1 0, 1 z" id="circle"></path>
+        
+            <text><textPath xlink:href="#circle">
+                Today's listening
+            </textPath></text>
+
+        </svg></div>
+
+        <article>
+            <div class="progress">
+                <span></span>
+                <div class="progress-bar"></div>
+                <span></span>
+            </div>
+
+            <h1>of your 5-minute goal</h1>
+        </article>
+
+        <%- include('./partials/svg-mouse') %>
+        <span class="shadow"></span>
+
+    </section>
+
+    <section>
+
+        <h2>Goodmorning, shall we start with a story?</h2>
+
+        <a href="/lessons">Let's do it!
+            <%- include('./partials/svg-arrow') %>
+        </a>
+
+    </section>
+
 </main>
